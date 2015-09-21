@@ -49,10 +49,12 @@ class FacebookConnectAuthCallback extends Controller {
 					$accessTokenValue
 				);
 
+				$params = array("fields"=>"email,first_name,last_name");
 				$user = (new FacebookRequest(
-					$session, 'GET', '/me'
+					$session, 'GET', '/me', $params
 				))->execute()->getGraphObject(GraphUser::className());
-
+				
+				
 				if(!$member = Member::currentUser()) {
 					// member is not currently logged into SilverStripe. Look up 
 					// for a member with the UID which matches first.
