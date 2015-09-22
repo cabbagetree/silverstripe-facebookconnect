@@ -12,3 +12,7 @@ Controller:
 Authenticator::
   authenticators:
     - FacebookAuthenticator
+    
+FacebookControllerExtension: 
+  member_groups: 
+    - facebook_members
