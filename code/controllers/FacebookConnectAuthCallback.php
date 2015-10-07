@@ -49,9 +49,13 @@ class FacebookConnectAuthCallback extends Controller {
 					$accessTokenValue
 				);
 
-				$params = array("fields"=>"email,first_name,last_name");
+				
+				$fields = Config::inst()->get(
+					'FacebookControllerExtension', 'facebook_fields'
+				);
+
 				$user = (new FacebookRequest(
-					$session, 'GET', '/me', $params
+					$session, 'GET', '/me', $fields
 				))->execute()->getGraphObject(GraphUser::className());
 				
 				
