@@ -60,7 +60,7 @@ class FacebookMemberExtension extends DataExtension {
 	 * @param GraphUser $result
 	 * @param bool $sync Flag to whether we override fields like first name
 	 */
-	public function updateFacebookFields(GraphUser $result, $override = true) {
+	public function updateFacebookFields($result, $override = true) {
 		$this->owner->FacebookLink	= $result->getProperty('link');
 		$this->owner->FacebookUID	= $result->getProperty('id');
 		$this->owner->FacebookTimezone = $result->getProperty('timezone');
